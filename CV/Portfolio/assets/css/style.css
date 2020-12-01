@@ -1,0 +1,353 @@
+/* Importation polices */
+
+
+@font-face {
+	font-family: "Pulse";
+	src: url('../../src/police/MBFPulse.otf');
+}
+
+@font-face {
+	font-family: "Hunzello Medium";
+	src: url('../../src/police/Hunzello Medium.otf');
+}
+
+@font-face {
+	font-family: "Phenom Grotesque M";
+	src: url('../../src/police/Phenom Grotesque Medium.ttf');
+}
+
+
+/* Général */
+
+
+* {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x:hidden;
+    background-color:rgb(165, 156, 146,0.9);
+}
+
+/*--- Navbar --*/
+
+.navbar {
+    text-transform:uppercase;
+    letter-spacing:0.1rem;
+    background-color:rgb(35, 31, 32, 0.9)!important;
+}
+
+.navbar-brand {
+    padding-bottom:0.6rem;
+    font-size:1.4rem;
+    font-family: "Pulse";
+    letter-spacing:-0.1rem;
+    color:rgb(196, 187, 175)!important;
+}
+
+.navbar-nav li {
+    padding-right:0.4rem;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color:rgb(196, 187, 175, 0.5);
+}
+
+.navbar-dark .navbar-nav .nav-link.active {
+    color:rgb(196, 187, 175);
+    font-size:1.05rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color:rgb(196, 187, 175);
+    font-size:1.05rem;
+}
+
+/* Fix navbar scrollspy hauteur */
+
+.offset:before {
+    display:block;
+    content:"";
+    height:4rem;
+    margin-top:-3.6rem;
+    
+}
+
+/* Background video */ 
+.video-wrap {
+    clip: rect(0, auto, auto, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  #video {
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    will-change: transform;
+    z-index: -1000;
+  }
+  video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    background: url('') no-repeat;
+    background-size: cover;
+    transition: 10s opacity;
+  }
+.video-background {
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    background-color:rgba(196, 187, 175, 0.7);
+}
+
+
+
+/*--- Landing Page Section --*/
+
+.home-presentation {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: table;
+    z-index: -1;
+  }
+  .home-box {
+    clip: rect(0, auto, auto, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .home-bg {
+    position: fixed;
+    display: table;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    will-change: transform;
+  }
+
+
+.home-titre {
+    width:100%;
+    max-width:100%;
+    position:absolute;
+    top:40%;
+    z-index:1;
+}
+
+.home-titre h1 {
+    text-transform:uppercase;
+    font-family: "Pulse";
+    font-size:5rem;
+    padding-bottom:0.5rem
+}
+
+.home-titre h6 {
+    font-family: "Hunzello Medium";
+    font-size:1.7rem;
+}
+
+.lien-sociaux {
+    padding-bottom:1rem;
+}
+#github-link, #linkedin-link {
+    width:2.3rem;
+    height:2.3rem;
+}
+
+
+.btn-lg {
+    
+    border-width:0.2rem;
+    border-radius:0.5;  
+    font-family: "Hunzello Medium";
+    padding-bottom:0.2rem; 
+    font-size:1rem;
+}
+
+.btn-lg:hover {
+    color:rgb(196, 187, 175);
+    background-color:rgb(35, 31, 32) !important;
+    border-color:rgb(35, 31, 32) !important;
+}
+
+
+
+
+
+/* Presentation section */
+
+.presentation-section {
+    color:rgb(35, 31, 32);
+    font-family: "Phenom Grotesque M";
+    font-size:1.3rem;
+}
+.narrow {
+    width:75%;
+    margin:1.5rem auto;
+    padding-top:1.5rem;
+    padding-bottom:1.5rem;
+}
+
+.narrow h1 {
+    font-family: "Phenom Grotesque M";
+    text-transform:uppercase;
+    font-size:2.3rem;
+}
+
+
+
+
+
+/* CV section */
+
+
+.fixed-background {
+    position: relative;
+    width: 100%;
+  }
+  .fixed-box {
+    clip: rect(0, auto, auto, 0);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -999!important;
+  }
+  .fixed {
+    background-image:url('../../src/img/25422.jpg');
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    will-change: transform;
+    z-index:-1;
+  }
+ 
+
+.dark {
+    background-color:rgb(196, 187, 175, 0.35);
+    padding-top:1.5rem;
+    padding-bottom:1.5rem;
+}
+
+.fixed-background h2 {
+    padding-bottom:1.5rem;
+    padding-top:1.5rem;
+    font-family: "Phenom Grotesque M";
+    text-transform:uppercase;
+    letter-spacing:0.5rem;
+    font-size:2.1rem;
+    color:rgb(196, 187, 175);
+}
+
+.item-box {
+    background-color:rgb(196, 187, 175, 0.8);
+    margin:1rem;
+    padding:0.6rem;
+    
+    font-size:1.3rem;
+    text-transform:uppercase;
+}
+
+.item-box:hover {
+    background-color:rgb(220, 211, 200, 0.9);
+}
+
+
+
+/* Contact-section */
+
+
+#contact {
+    background-color:rgb(35, 31, 32);
+    color:rgb(165, 156, 146);
+    padding-top:1.5rem;
+    padding-bottom:1.5rem;
+}
+
+
+.contact-titre h3 {
+    margin:1.5rem auto;
+    padding-top:1.5rem;
+    padding-bottom:1rem;
+    font-family: "Phenom Grotesque M";
+    text-transform:uppercase;
+    font-size:2.3rem;
+}
+
+#telephone, #adresse {
+    padding-top:0.5rem;
+    font-family: "Phenom Grotesque M";
+    font-size:1.2rem;
+}
+
+
+.form-section {
+    padding-top:1.5rem;
+    padding-bottom:1.5rem;
+}
+
+label {
+    text-transform:uppercase;
+    padding-top:0.5rem;
+}
+
+.form-control {
+    background-color:rgb(46, 43, 44);
+    border: unset;
+    color:rgb(165, 156, 146);
+}
+
+.form-control:focus {
+    background-color:rgb(59, 54, 56, 0.7);
+    box-shadow: 0 0 3px rgb(220, 211, 200, 0.5) !important;
+    color:rgb(165, 156, 146);
+}
+
+.btn-outline-light {
+    
+    border-width:0.1rem;
+    border-radius:0;  
+    font-family: "Hunzello Medium";
+    padding-bottom:0.2rem; 
+    margin-top:1rem;
+    font-size:1rem;
+    color:rgb(165, 156, 146);
+
+}
+
+.btn-outline-light:hover {
+    color:rgb(35, 31, 32);
+}

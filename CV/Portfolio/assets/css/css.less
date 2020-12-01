@@ -1,0 +1,140 @@
+/* Import */
+
+@font-face {
+	font-family: "Phenom Grotesque M";
+	src: url('../../src/Phenom Grotesque Medium.ttf');
+}
+
+/* Variables */
+
+@background: #231F20;
+
+@color-dark:#231F20;
+@color-primary: #A59C92;
+@color-light: #A59C92;
+@color-dim: #6c6d6d;
+@spacing: 50px;
+@radius: 4px;
+
+@date: 120px;
+@dotborder: 4px;
+@dot: 11px;
+@line: 4px;
+
+@font-title: "Phenom Grotesque M";
+@font-text: "Phenom Grotesque M";
+
+/* Base */
+
+
+#timeline-content a { 
+  color: @color-light;
+  text-decoration: none;
+  text-transform: uppercase;
+  display: block;
+  letter-spacing: .3em;
+  font-size: 0.7em;
+  font-weight: 400;
+  background: @color-dark;
+  padding: .3rem 1rem;
+  margin: 1.9rem 0 0 0;
+  float: right;
+}
+
+#timeline-content a:hover { 
+  color: @color-dark;
+  background: @color-light;
+  border-bottom: .35em solid @color-dark;
+}
+
+#timeline-content strong {
+  font-weight: 600;
+}
+
+#timeline-content h1 {
+ font-family: @font-title;
+ letter-spacing: 1.5px;
+ color: @color-dark;  
+ font-weight: 400;
+ font-size: 2.4em;
+}
+
+#timeline-content {
+  margin-top: @spacing;
+  text-align: center;  
+}
+
+/* Timeline */
+
+.timeline {
+  border-left: @line solid @color-primary;
+  border-bottom-right-radius: @radius;
+  border-top-right-radius: @radius;    
+  background: fade(@color-dark, 80%);
+  color: @color-light;
+  font-family: @font-text;  
+  margin: @spacing auto;  
+  letter-spacing: 0.5px;   
+  position: relative;
+  line-height: 1.4em;
+  font-size: 1.03em;   
+  padding: @spacing;   
+  list-style: none;
+  text-align: left;  
+  font-weight: 100;  
+  
+  h1 {
+   font-family: @font-title;
+   text-transform: uppercase;
+   font-weight: 100;
+   font-size: 1.4em;    
+  }
+  
+  h2, h3 {
+   font-family: @font-title;
+   text-transform: uppercase;
+   font-weight: 400;
+   font-size: 1.4em;
+  }
+  
+  .event {
+    border-bottom: 1px dashed fade(@color-light, 10%);
+    padding-bottom: (@spacing * 0.5);
+    margin-bottom: @spacing;  
+    position: relative;
+
+    &:last-of-type { 
+      padding-bottom: 0;
+      margin-bottom: 0; 
+      border: none;      
+    }
+
+    &:before, &:after {
+      position: absolute;
+      display: block;
+      top: 0;
+    }
+
+    &:before {
+      left: (((@date * 0.6) + @spacing + @line + @dot + (@dotborder * 2)) * 1.5) * -1;    
+      color: @color-light;    
+      content: attr(data-date);
+      text-align: right;
+      font-weight: 100;    
+      font-size: 1em;
+      min-width: @date;
+      font-family: @font-title;
+    }
+
+    &:after {
+      box-shadow: 0 0 0 @dotborder fade(@color-light,100%);    
+      left: (@spacing + @line + (@dot * 0.35)) * -1;        
+      background: lighten(@background, 5%);    
+      border-radius: 50%;  
+      height: @dot;
+      width: @dot;
+      content: "";
+      top: 5px;
+    }
+  }
+}
