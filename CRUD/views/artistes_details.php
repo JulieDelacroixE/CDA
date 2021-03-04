@@ -1,9 +1,12 @@
 <?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 require_once '../controllers/artistes_details_controller.php';
 ?>
 
 <div class="p-3" id="details">
-    <h3><?=$artist->artist_name?></h3>
+    <h2><?=$artist->artist_name?></h2>
     <ul class="p-0 offset-4 text-left">
         <li><strong>ID : </strong><?= $artist->artist_id?></li>
         <li><strong>Nom :</strong><?= $artist->artist_name?> </li>

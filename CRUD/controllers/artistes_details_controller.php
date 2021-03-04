@@ -1,4 +1,7 @@
 <?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 require_once '../src/connexion_db.php';
 // On récupère la valeur de l'id passé en GET.
 if(isset($_GET["id"])) {

@@ -1,4 +1,7 @@
 <?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 include "../src/header.php";
 require_once '../controllers/disques_update_form_controller.php';
 
@@ -15,7 +18,7 @@ require_once '../controllers/disques_update_form_controller.php';
 <div class="page-content p-5" id="content">
     <!-- Toggle button -->
     <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small  class="text-uppercase font-weight-bold">Toggle</small></button>
-    <h2 class="display-4 text-white pb-3">Modifier un disque</h2>
+    <h1 class="display-4 text-white pb-3">Modifier un disque</h1>
     <div class="row justify-content-center">
         <div class="add-form col-6 bg-form p-5">
             <form action="#" method="POST" enctype="multipart/form-data">
@@ -72,6 +75,7 @@ require_once '../controllers/disques_update_form_controller.php';
         </div>
     </div>
 </div>
+<script src="../assets/js/disque_add_validation.js"></script>
 <?php
 include "../src/footer.php";
 ?>

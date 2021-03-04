@@ -1,3 +1,7 @@
+<?php if (session_status() !== PHP_SESSION_ACTIVE) {
+session_start();
+} ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,13 +21,45 @@
     
       <div class="media-body">
         <h4 class="m-0">Velvet Records</h4>
-        <p class="font-weight-normal text-muted mb-0"></p>
+        <?php if (isset($_SESSION["pseudo"])) {
+    ?>
+        <p class="font-weight-normal text-muted mb-0"><?= "Bienvenue ". $_SESSION["pseudo"] ?></p>
+    <?php } ?>
       </div>
     </div>
   </div>
 
 
+  <?php if (!isset($_SESSION["pseudo"])) {
+    ?>
+  
   <ul class="nav flex-column bg-white mb-0">
+  <li class="nav-item">
+      <a href="../views/user_connexion.php" class="nav-link text-dark bg-light">
+                <i class="fa fa-home mr-3 text-primary fa-fw"></i>
+                Connexion
+            </a>
+  </li>
+  <li class="nav-item">
+      <a href="user_inscription.php" class="nav-link text-dark bg-light">
+                <i class="fa fa-home mr-3 text-primary fa-fw"></i>
+                Inscription
+            </a>
+  </li>
+  <?php } else { ?>
+    <li class="nav-item">
+      <a href="../controllers/user_deconnexion_controller.php" class="nav-link text-dark bg-light">
+                <i class="fa fa-home mr-3 text-primary fa-fw"></i>
+                Deconnexion
+            </a>
+    </li>
+    <li class="nav-item">
+      <a href="user_profil.php" class="nav-link text-dark bg-light">
+                <i class="fa fa-home mr-3 text-primary fa-fw"></i>
+                Profil
+            </a>
+    </li>
+  <?php } ?>
     <li class="nav-item">
       <a href="#" class="nav-link text-dark bg-light">
                 <i class="fa fa-home mr-3 text-primary fa-fw"></i>

@@ -1,6 +1,8 @@
 <?php 
 
-
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 //Connexion à la base
 
 require_once '../src/connexion_db.php'; 
@@ -16,7 +18,7 @@ function valid_donnees($donnees){
     $donnees = htmlspecialchars($donnees);
     return $donnees;
 }
-
+// Vérification formulaire
 if (!empty($_POST["submit"])) {
     if (!empty($_POST['title-input']) && preg_match("#[ a-zA-Z '-]{1,30}#", $_POST['title-input'])) {     
            $discTitle = valid_donnees($_POST['title-input']);  

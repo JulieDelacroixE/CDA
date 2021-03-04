@@ -1,4 +1,7 @@
 <?php 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 include "../src/header.php";
 require_once "../controllers/disques_liste_controller.php";
 ?>
@@ -14,7 +17,7 @@ require_once "../controllers/disques_liste_controller.php";
 <div class="container-fluid page-content p-5" id="content">
   <!-- Toggle button -->
     <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
-    <h2 class="display-4 text-white pb-3">Liste des disques</h2>
+    <h1 class="display-4 text-white pb-3">Liste des disques</h1>
     <div class="row text-white">
         <div class="col-lg-7">
             <span id="alerte"></span>
@@ -57,7 +60,7 @@ require_once "../controllers/disques_liste_controller.php";
     </div>
 </div>
 <!-- Fin contenu -->
-
+<script src="../assets/js/deleteconfirm.js"></script>
 <?php
 include "../src/footer.php";
 ?>

@@ -1,4 +1,7 @@
 <?php 
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 require_once '../src/connexion_db.php';
 if(isset($_GET["id"])){
     $disc_id = $_GET["id"];
@@ -34,12 +37,14 @@ if (!empty($_POST["submit"])) {
     if (!empty($_FILES["photo"])) {
         if ($_FILES["photo"]["error"] === UPLOAD_ERR_OK) 
         {
+            //Vérification extension du fichier
                 $aMimeTypes = array("image/gif", "image/jpeg", "image/pjpeg", "image/x-png", "image/tiff", "image/png");
                 $finfo = finfo_open(FILEINFO_MIME_TYPE);
                 $mimetype = finfo_file($finfo, $_FILES["photo"]["tmp_name"]);
                     finfo_close($finfo);
                     if (in_array($mimetype, $aMimeTypes)) 
                     {
+                        //Suppression de l'ancienne image si existante
                         unlink('../src/pictures/'.$discTitle.".".$extension);
                         $tmp_name = $_FILES["photo"]["tmp_name"];
                         $extension = substr(strrchr($_FILES["photo"]["name"], "."), 1);
@@ -116,7 +121,7 @@ if (!empty($_POST["submit"])) {
 
         $discArtist = $disque->artist_id;
     }
-    
+    //Si pas d'erreur
     if (preg_match("#[ a-zA-Z '-]{1,30}#", $discTitle)
     && preg_match("#[0-9]{4}#", $discYear)
     && preg_match("#[a-zA-Z]{1,200}#", $discLabel) 
@@ -138,7 +143,7 @@ if (!empty($_POST["submit"])) {
         catch (Exception $e) {
             print "Erreur ! " . $e->getMessage() . "<br/>";
         }  
-        
+        //Redirection
         header("Location:../views/disques_liste.php");
         exit;
     }

@@ -1,4 +1,7 @@
 <?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 include "../src/header.php";
 require "../controllers/disques_add_disque_controller.php";
 ?>
@@ -15,11 +18,11 @@ require "../controllers/disques_add_disque_controller.php";
   <!-- Toggle button -->
   <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4"><i class="fa fa-bars mr-2"></i><small class="text-uppercase font-weight-bold">Toggle</small></button>
     <p class="h2 text-dark"><strong><?=$disqueAjoute?></strong></p>
-    <h2 class="display-4 text-white pb-3">Ajout d'un disque</h2>
+    <h1 class="display-4 text-white pb-3">Ajout d'un disque</h1>
     <div class="row justify-content-center">
         <div class="add-form col-6 bg-form p-5">
-            <form action="#" method="POST" enctype="multipart/form-data">
-                <h3 class="text-white pb-3 text-center">Ajout d'un disque</h3>
+            <form action="#" method="POST" enctype="multipart/form-data" id="addForm">
+                <h2 class="text-white pb-3 text-center">Ajout d'un disque</h2>
                 <div class="form-group">
                     <label for="title-input">Titre</label>
                     <input type="text" class="form-control" id="title-input" name="title-input" value="<?=$discTitle?>">
@@ -71,6 +74,7 @@ require "../controllers/disques_add_disque_controller.php";
         </div>
     </div>
 </div>
+<script src="../assets/js/disque_add_validation.js"></script>
 <?php
 include "../src/footer.php";
 ?>
